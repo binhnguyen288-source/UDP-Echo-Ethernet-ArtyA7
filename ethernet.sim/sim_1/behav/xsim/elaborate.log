@@ -1,0 +1,11 @@
+Vivado Simulator v2022.2
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2022.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot top_behav xil_defaultlib.top xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+ERROR: [VRFC 10-3818] variable 'proc_state' is driven by invalid combination of procedural drivers [C:/Users/nguye/Documents/ethernet/ethernet.srcs/sources_1/new/top.sv:106]
+WARNING: [VRFC 10-2921] 'proc_state' driven by this always_ff block should not be driven by any other process [C:/Users/nguye/Documents/ethernet/ethernet.srcs/sources_1/new/top.sv:129]
+ERROR: [VRFC 10-3818] variable 'proc_statecounter' is driven by invalid combination of procedural drivers [C:/Users/nguye/Documents/ethernet/ethernet.srcs/sources_1/new/top.sv:108]
+ERROR: [VRFC 10-3818] variable 'calc_buffer' is driven by invalid combination of procedural drivers [C:/Users/nguye/Documents/ethernet/ethernet.srcs/sources_1/new/top.sv:110]
+ERROR: [XSIM 43-3322] Static elaboration of top level Verilog design unit(s) in library work failed.

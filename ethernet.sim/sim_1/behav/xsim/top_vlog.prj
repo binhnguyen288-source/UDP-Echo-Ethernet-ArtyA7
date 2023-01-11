@@ -1,0 +1,12 @@
+# compile verilog/system verilog design source files
+sv xil_defaultlib  \
+"../../../../ethernet.srcs/sources_1/new/crc32.sv" \
+"../../../../ethernet.srcs/sources_1/new/ethernet_rx.sv" \
+"../../../../ethernet.srcs/sources_1/new/ethernet_tx.sv" \
+"../../../../ethernet.srcs/sources_1/new/top.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
