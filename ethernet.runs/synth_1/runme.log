@@ -10,8 +10,8 @@
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 
 source top.tcl -notrace
-Command: read_checkpoint -incremental C:/Users/nguye/Documents/ethernet/ethernet.srcs/utils_1/imports/synth_1/top.dcp
-INFO: [Vivado 12-5825] Read reference checkpoint from C:/Users/nguye/Documents/ethernet/ethernet.srcs/utils_1/imports/synth_1/top.dcp for incremental synthesis
+Command: read_checkpoint -incremental C:/Users/nguye/Documents/GitHub/UDP-Echo-Ethernet-ArtyA7/ethernet.srcs/utils_1/imports/synth_1/top.dcp
+INFO: [Vivado 12-5825] Read reference checkpoint from C:/Users/nguye/Documents/GitHub/UDP-Echo-Ethernet-ArtyA7/ethernet.srcs/utils_1/imports/synth_1/top.dcp for incremental synthesis
 INFO: [Vivado 12-7989] Please ensure there are no constraint changes
 Command: synth_design -top top -part xc7a35ticsg324-1L -directive AreaOptimized_high -control_set_opt_threshold 1
 Starting synth_design
@@ -20,18 +20,18 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t
 INFO: [Device 21-403] Loading part xc7a35ticsg324-1L
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 8444
+INFO: [Synth 8-7075] Helper process launched with PID 12820
 INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [C:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:05 . Memory (MB): peak = 1193.418 ; gain = 406.109
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:05 . Memory (MB): peak = 1189.230 ; gain = 406.816
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-6157] synthesizing module 'top' [C:/Users/nguye/Documents/ethernet/ethernet.srcs/sources_1/new/top.sv:23]
+INFO: [Synth 8-6157] synthesizing module 'top' [C:/Users/nguye/Documents/GitHub/UDP-Echo-Ethernet-ArtyA7/ethernet.srcs/sources_1/new/top.sv:23]
 INFO: [Synth 8-6157] synthesizing module 'PLLE2_BASE' [C:/Xilinx/Vivado/2022.2/scripts/rt/data/unisim_comp.v:108995]
 	Parameter CLKFBOUT_MULT bound to: 8 - type: integer 
 	Parameter CLKIN1_PERIOD bound to: 10.000000 - type: double 
 	Parameter CLKOUT0_DIVIDE bound to: 32 - type: integer 
 INFO: [Synth 8-6155] done synthesizing module 'PLLE2_BASE' (0#1) [C:/Xilinx/Vivado/2022.2/scripts/rt/data/unisim_comp.v:108995]
-INFO: [Synth 8-6157] synthesizing module 'ethernet_rx' [C:/Users/nguye/Documents/ethernet/ethernet.srcs/sources_1/new/ethernet_rx.sv:23]
+INFO: [Synth 8-6157] synthesizing module 'ethernet_rx' [C:/Users/nguye/Documents/GitHub/UDP-Echo-Ethernet-ArtyA7/ethernet.srcs/sources_1/new/ethernet_rx.sv:23]
 	Parameter flush_bytes_threshold bound to: 13'b0000010000000 
 INFO: [Synth 8-6157] synthesizing module 'xil_internal_svlib_FIFO_DUALCLOCK_MACRO' [C:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/FIFO_DUALCLOCK_MACRO.v:25]
 	Parameter ALMOST_EMPTY_OFFSET bound to: 13'b0000011111111 
@@ -52,96 +52,75 @@ INFO: [Synth 8-6157] synthesizing module 'FIFO36E1' [C:/Xilinx/Vivado/2022.2/scr
 	Parameter SRVAL bound to: 72'b000000000000000000000000000000000000000000000000000000000000000000000000 
 INFO: [Synth 8-6155] done synthesizing module 'FIFO36E1' (0#1) [C:/Xilinx/Vivado/2022.2/scripts/rt/data/unisim_comp.v:39358]
 INFO: [Synth 8-6155] done synthesizing module 'xil_internal_svlib_FIFO_DUALCLOCK_MACRO' (0#1) [C:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/FIFO_DUALCLOCK_MACRO.v:25]
-INFO: [Synth 8-6155] done synthesizing module 'ethernet_rx' (0#1) [C:/Users/nguye/Documents/ethernet/ethernet.srcs/sources_1/new/ethernet_rx.sv:23]
-INFO: [Synth 8-6157] synthesizing module 'ethernet_tx' [C:/Users/nguye/Documents/ethernet/ethernet.srcs/sources_1/new/ethernet_tx.sv:23]
-	Parameter flush_bytes_threshold bound to: 13'b0000100000000 
-INFO: [Synth 8-6157] synthesizing module 'xil_internal_svlib_FIFO_DUALCLOCK_MACRO__parameterized0' [C:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/FIFO_DUALCLOCK_MACRO.v:25]
-	Parameter ALMOST_EMPTY_OFFSET bound to: 13'b0000111111111 
-	Parameter DATA_WIDTH bound to: 4 - type: integer 
-	Parameter DEVICE bound to: 7SERIES - type: string 
-	Parameter FIFO_SIZE bound to: 36Kb - type: string 
-	Parameter FIRST_WORD_FALL_THROUGH bound to: TRUE - type: string 
-INFO: [Synth 8-6157] synthesizing module 'FIFO36E1__parameterized0' [C:/Xilinx/Vivado/2022.2/scripts/rt/data/unisim_comp.v:39358]
-	Parameter ALMOST_EMPTY_OFFSET bound to: 13'b0000111111111 
-	Parameter ALMOST_FULL_OFFSET bound to: 9'b010000000 
-	Parameter DATA_WIDTH bound to: 4 - type: integer 
-	Parameter DO_REG bound to: 1 - type: integer 
-	Parameter EN_SYN bound to: FALSE - type: string 
-	Parameter FIFO_MODE bound to: FIFO36 - type: string 
-	Parameter FIRST_WORD_FALL_THROUGH bound to: TRUE - type: string 
-	Parameter INIT bound to: 72'b000000000000000000000000000000000000000000000000000000000000000000000000 
-	Parameter SIM_DEVICE bound to: 7SERIES - type: string 
-	Parameter SRVAL bound to: 72'b000000000000000000000000000000000000000000000000000000000000000000000000 
-INFO: [Synth 8-6155] done synthesizing module 'FIFO36E1__parameterized0' (0#1) [C:/Xilinx/Vivado/2022.2/scripts/rt/data/unisim_comp.v:39358]
-INFO: [Synth 8-6155] done synthesizing module 'xil_internal_svlib_FIFO_DUALCLOCK_MACRO__parameterized0' (0#1) [C:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/FIFO_DUALCLOCK_MACRO.v:25]
-INFO: [Synth 8-6157] synthesizing module 'crc32' [C:/Users/nguye/Documents/ethernet/ethernet.srcs/sources_1/new/crc32.sv:23]
-INFO: [Synth 8-6155] done synthesizing module 'crc32' (0#1) [C:/Users/nguye/Documents/ethernet/ethernet.srcs/sources_1/new/crc32.sv:23]
-INFO: [Synth 8-6155] done synthesizing module 'ethernet_tx' (0#1) [C:/Users/nguye/Documents/ethernet/ethernet.srcs/sources_1/new/ethernet_tx.sv:23]
-INFO: [Synth 8-6157] synthesizing module 'do_calc' [C:/Users/nguye/Documents/ethernet/ethernet.srcs/sources_1/new/top.sv:168]
-INFO: [Synth 8-6155] done synthesizing module 'do_calc' (0#1) [C:/Users/nguye/Documents/ethernet/ethernet.srcs/sources_1/new/top.sv:168]
-INFO: [Synth 8-6155] done synthesizing module 'top' (0#1) [C:/Users/nguye/Documents/ethernet/ethernet.srcs/sources_1/new/top.sv:23]
+INFO: [Synth 8-6155] done synthesizing module 'ethernet_rx' (0#1) [C:/Users/nguye/Documents/GitHub/UDP-Echo-Ethernet-ArtyA7/ethernet.srcs/sources_1/new/ethernet_rx.sv:23]
+INFO: [Synth 8-6157] synthesizing module 'ethernet_tx' [C:/Users/nguye/Documents/GitHub/UDP-Echo-Ethernet-ArtyA7/ethernet.srcs/sources_1/new/ethernet_tx.sv:23]
+	Parameter flush_bytes_threshold bound to: 13'b0000010000000 
+INFO: [Synth 8-6157] synthesizing module 'crc32' [C:/Users/nguye/Documents/GitHub/UDP-Echo-Ethernet-ArtyA7/ethernet.srcs/sources_1/new/crc32.sv:23]
+INFO: [Synth 8-6155] done synthesizing module 'crc32' (0#1) [C:/Users/nguye/Documents/GitHub/UDP-Echo-Ethernet-ArtyA7/ethernet.srcs/sources_1/new/crc32.sv:23]
+INFO: [Synth 8-6155] done synthesizing module 'ethernet_tx' (0#1) [C:/Users/nguye/Documents/GitHub/UDP-Echo-Ethernet-ArtyA7/ethernet.srcs/sources_1/new/ethernet_tx.sv:23]
+INFO: [Synth 8-6155] done synthesizing module 'top' (0#1) [C:/Users/nguye/Documents/GitHub/UDP-Echo-Ethernet-ArtyA7/ethernet.srcs/sources_1/new/top.sv:23]
 WARNING: [Synth 8-3917] design top has port ETH_MDC driven by constant 0
-WARNING: [Synth 8-7129] Port rst in module do_calc is either unconnected or has no load
-WARNING: [Synth 8-7129] Port clk in module do_calc is either unconnected or has no load
 WARNING: [Synth 8-7129] Port ETH_MDIO in module top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ps2_clk in module top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ps2_data in module top is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:06 . Memory (MB): peak = 1291.699 ; gain = 504.391
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 1285.602 ; gain = 503.188
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:06 . Memory (MB): peak = 1291.699 ; gain = 504.391
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 1285.602 ; gain = 503.188
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:06 . Memory (MB): peak = 1291.699 ; gain = 504.391
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 1285.602 ; gain = 503.188
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.065 . Memory (MB): peak = 1291.699 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.035 . Memory (MB): peak = 1285.602 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 3 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [C:/Users/nguye/Documents/ethernet/ethernet.srcs/constrs_1/new/constraint.xdc]
-Finished Parsing XDC File [C:/Users/nguye/Documents/ethernet/ethernet.srcs/constrs_1/new/constraint.xdc]
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/nguye/Documents/ethernet/ethernet.srcs/constrs_1/new/constraint.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_propImpl.xdc].
+Parsing XDC File [C:/Users/nguye/Documents/GitHub/UDP-Echo-Ethernet-ArtyA7/ethernet.srcs/constrs_1/new/constraint.xdc]
+Finished Parsing XDC File [C:/Users/nguye/Documents/GitHub/UDP-Echo-Ethernet-ArtyA7/ethernet.srcs/constrs_1/new/constraint.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/nguye/Documents/GitHub/UDP-Echo-Ethernet-ArtyA7/ethernet.srcs/constrs_1/new/constraint.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 INFO: [Timing 38-2] Deriving generated clocks
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1335.449 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1329.285 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 1 instances were transformed.
   PLLE2_BASE => PLLE2_ADV: 1 instance 
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.015 . Memory (MB): peak = 1335.449 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.012 . Memory (MB): peak = 1329.285 ; gain = 0.000
 INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [C:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:07 ; elapsed = 00:00:13 . Memory (MB): peak = 1335.449 ; gain = 548.141
+Finished Constraint Validation : Time (s): cpu = 00:00:09 ; elapsed = 00:00:13 . Memory (MB): peak = 1329.285 ; gain = 546.871
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35ticsg324-1L
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:07 ; elapsed = 00:00:13 . Memory (MB): peak = 1335.449 ; gain = 548.141
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:09 ; elapsed = 00:00:13 . Memory (MB): peak = 1329.285 ; gain = 546.871
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:07 ; elapsed = 00:00:13 . Memory (MB): peak = 1335.449 ; gain = 548.141
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:09 ; elapsed = 00:00:13 . Memory (MB): peak = 1329.285 ; gain = 546.871
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Preparing Guide Design
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-6702] IncrSynth : Design change found in an area of the design that prevents previous synthesis information being used, Reverting to default synthesis
 ---------------------------------------------------------------------------------
-Finished Doing Graph Differ : Time (s): cpu = 00:00:07 ; elapsed = 00:00:14 . Memory (MB): peak = 1335.449 ; gain = 548.141
+Finished Doing Graph Differ : Time (s): cpu = 00:00:09 ; elapsed = 00:00:13 . Memory (MB): peak = 1329.285 ; gain = 546.871
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Preparing Guide Design : Time (s): cpu = 00:00:07 ; elapsed = 00:00:14 . Memory (MB): peak = 1335.449 ; gain = 548.141
+Finished Preparing Guide Design : Time (s): cpu = 00:00:09 ; elapsed = 00:00:13 . Memory (MB): peak = 1329.285 ; gain = 546.871
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'tx_state_reg' in module 'ethernet_tx'
 INFO: [Synth 8-802] inferred FSM for state register 'proc_state_reg' in module 'top'
@@ -167,7 +146,7 @@ INFO: [Synth 8-3354] encoded FSM with state register 'tx_state_reg' using encodi
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'proc_state_reg' using encoding 'one-hot' in module 'top'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:15 . Memory (MB): peak = 1335.449 ; gain = 548.141
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:14 . Memory (MB): peak = 1329.285 ; gain = 546.871
 ---------------------------------------------------------------------------------
 
 
@@ -189,24 +168,22 @@ Detailed RTL Component Info :
 	   5 Input      1 Bit         XORs := 2     
 	   4 Input      1 Bit         XORs := 8     
 +---Registers : 
-	             2048 Bit    Registers := 1     
-	             1024 Bit    Registers := 1     
+	             1024 Bit    Registers := 2     
 	              336 Bit    Registers := 1     
 	               64 Bit    Registers := 1     
 	               32 Bit    Registers := 2     
 	                5 Bit    Registers := 1     
 +---Muxes : 
-	   4 Input 2048 Bit        Muxes := 2     
-	   4 Input 1024 Bit        Muxes := 1     
+	   4 Input 1024 Bit        Muxes := 3     
 	   2 Input   32 Bit        Muxes := 3     
 	   6 Input   32 Bit        Muxes := 1     
 	   5 Input   32 Bit        Muxes := 1     
 	   6 Input    6 Bit        Muxes := 1     
 	   2 Input    6 Bit        Muxes := 6     
-	   2 Input    5 Bit        Muxes := 10    
+	   2 Input    5 Bit        Muxes := 9     
 	   6 Input    5 Bit        Muxes := 4     
 	   5 Input    5 Bit        Muxes := 2     
-	   2 Input    4 Bit        Muxes := 7     
+	   2 Input    4 Bit        Muxes := 6     
 	   3 Input    4 Bit        Muxes := 2     
 	   5 Input    4 Bit        Muxes := 1     
 	   2 Input    3 Bit        Muxes := 4     
@@ -230,26 +207,28 @@ Start Cross Boundary and Area Optimization
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
 WARNING: [Synth 8-3917] design top has port ETH_MDC driven by constant 0
 WARNING: [Synth 8-7129] Port ETH_MDIO in module top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ps2_clk in module top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ps2_data in module top is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:34 . Memory (MB): peak = 1335.449 ; gain = 548.141
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:20 ; elapsed = 00:00:26 . Memory (MB): peak = 1329.285 ; gain = 546.871
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:21 ; elapsed = 00:00:39 . Memory (MB): peak = 1335.449 ; gain = 548.141
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:23 ; elapsed = 00:00:30 . Memory (MB): peak = 1329.285 ; gain = 546.871
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:40 . Memory (MB): peak = 1335.449 ; gain = 548.141
+Finished Timing Optimization : Time (s): cpu = 00:00:24 ; elapsed = 00:00:31 . Memory (MB): peak = 1329.285 ; gain = 546.871
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:23 ; elapsed = 00:00:41 . Memory (MB): peak = 1335.449 ; gain = 548.141
+Finished Technology Mapping : Time (s): cpu = 00:00:24 ; elapsed = 00:00:32 . Memory (MB): peak = 1329.285 ; gain = 546.871
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -267,37 +246,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:25 ; elapsed = 00:00:46 . Memory (MB): peak = 1344.070 ; gain = 556.762
+Finished IO Insertion : Time (s): cpu = 00:00:27 ; elapsed = 00:00:36 . Memory (MB): peak = 1329.285 ; gain = 546.871
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:25 ; elapsed = 00:00:46 . Memory (MB): peak = 1344.070 ; gain = 556.762
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:27 ; elapsed = 00:00:36 . Memory (MB): peak = 1329.285 ; gain = 546.871
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:25 ; elapsed = 00:00:46 . Memory (MB): peak = 1344.070 ; gain = 556.762
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:27 ; elapsed = 00:00:36 . Memory (MB): peak = 1329.285 ; gain = 546.871
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:25 ; elapsed = 00:00:46 . Memory (MB): peak = 1344.070 ; gain = 556.762
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:27 ; elapsed = 00:00:36 . Memory (MB): peak = 1329.285 ; gain = 546.871
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:26 ; elapsed = 00:00:46 . Memory (MB): peak = 1344.070 ; gain = 556.762
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:27 ; elapsed = 00:00:36 . Memory (MB): peak = 1329.285 ; gain = 546.871
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:26 ; elapsed = 00:00:46 . Memory (MB): peak = 1344.070 ; gain = 556.762
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:27 ; elapsed = 00:00:36 . Memory (MB): peak = 1329.285 ; gain = 546.871
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -331,43 +310,43 @@ Report Cell Usage:
 |1     |BUFG       |     3|
 |2     |CARRY4     |    14|
 |3     |FIFO36E1   |     2|
-|5     |LUT1       |     5|
-|6     |LUT2       |    40|
-|7     |LUT3       |    27|
-|8     |LUT4       |    54|
-|9     |LUT5       |  2124|
-|10    |LUT6       |   293|
-|11    |PLLE2_BASE |     1|
-|12    |SRL16E     |     1|
-|13    |SRLC32E    |    12|
-|14    |FDRE       |  3197|
-|15    |FDSE       |    32|
-|16    |IBUF       |     9|
-|17    |OBUF       |     8|
+|4     |LUT1       |     5|
+|5     |LUT2       |    16|
+|6     |LUT3       |    45|
+|7     |LUT4       |    40|
+|8     |LUT5       |  1112|
+|9     |LUT6       |   278|
+|10    |PLLE2_BASE |     1|
+|11    |SRL16E     |     1|
+|12    |SRLC32E    |    12|
+|13    |FDRE       |  2154|
+|14    |FDSE       |    32|
+|15    |IBUF       |     9|
+|16    |OBUF       |     8|
 +------+-----------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:26 ; elapsed = 00:00:46 . Memory (MB): peak = 1344.070 ; gain = 556.762
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:27 ; elapsed = 00:00:36 . Memory (MB): peak = 1329.285 ; gain = 546.871
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 4 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:22 ; elapsed = 00:00:44 . Memory (MB): peak = 1344.070 ; gain = 513.012
-Synthesis Optimization Complete : Time (s): cpu = 00:00:26 ; elapsed = 00:00:47 . Memory (MB): peak = 1344.070 ; gain = 556.762
+Synthesis finished with 0 errors, 0 critical warnings and 6 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:23 ; elapsed = 00:00:34 . Memory (MB): peak = 1329.285 ; gain = 503.188
+Synthesis Optimization Complete : Time (s): cpu = 00:00:28 ; elapsed = 00:00:36 . Memory (MB): peak = 1329.285 ; gain = 546.871
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.037 . Memory (MB): peak = 1344.070 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.020 . Memory (MB): peak = 1329.285 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 17 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 WARNING: [Netlist 29-101] Netlist 'top' is not ideal for floorplanning, since the cellview 'top' contains a large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1363.887 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1345.363 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 1 instances were transformed.
   PLLE2_BASE => PLLE2_ADV: 1 instance 
 
-Synth Design complete, checksum: 990ab331
+Synth Design complete, checksum: f05ca1e2
 INFO: [Common 17-83] Releasing license: Synthesis
-47 Infos, 9 Warnings, 0 Critical Warnings and 0 Errors encountered.
+41 Infos, 11 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:27 ; elapsed = 00:00:52 . Memory (MB): peak = 1363.887 ; gain = 955.648
-INFO: [Common 17-1381] The checkpoint 'C:/Users/nguye/Documents/ethernet/ethernet.runs/synth_1/top.dcp' has been generated.
+synth_design: Time (s): cpu = 00:00:31 ; elapsed = 00:00:40 . Memory (MB): peak = 1345.363 ; gain = 940.699
+INFO: [Common 17-1381] The checkpoint 'C:/Users/nguye/Documents/GitHub/UDP-Echo-Ethernet-ArtyA7/ethernet.runs/synth_1/top.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Mon Jan  9 13:17:32 2023...
+INFO: [Common 17-206] Exiting Vivado at Thu Jan 26 07:08:08 2023...

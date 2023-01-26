@@ -81,7 +81,12 @@ module ethernet_tx(
         preamble_buffer = {<<8{64'h55555555555555D5}};
         udp_size = 8 + flush_bytes_threshold;
         ip_size = 20 + udp_size;
-        ip_header = {16'h4500, ip_size, 128'hB3FE000080110000C0A80A09C0A80AFE};
+        ip_header = {
+            16'h4500, ip_size, 
+            64'hB3FE000080110000,
+            8'd192, 8'd168, 8'd88, 8'd9,
+            8'd192, 8'd168, 8'd88, 8'd161
+        };
         checksum = 0;
         for (int i = 0; i < 160; i += 16) begin
             checksum = checksum + ip_header[i+:16];
@@ -98,70 +103,70 @@ module ethernet_tx(
         frame_header = {<<8{frame_header}};
     end
 
-
-logic[15:0] tx_statecounter;
-initial tx_statecounter = 0;
-
-typedef enum {
-    TX_INIT, TX_PREAMBLE, TX_HEADER,
-    TX_DATA,
-    TX_FCS, TX_WAIT
-} TX_STATE;
-
-TX_STATE tx_state;
-initial tx_state = TX_INIT;
-TX_STATE tx_nextstate;
-always_comb 
-case (tx_state)
-    TX_INIT: tx_nextstate = tx_fifo_notenoughdata ? TX_INIT : TX_PREAMBLE;
-    TX_PREAMBLE: tx_nextstate = tx_statecounter == preamble_cycles - 1 ? TX_HEADER : TX_PREAMBLE;
-    TX_HEADER: tx_nextstate = tx_statecounter == header_cycles - 1 ? TX_DATA : TX_HEADER;
-    TX_DATA: tx_nextstate = tx_statecounter == frame_cycles - 1 ? TX_FCS : TX_DATA;
-    TX_FCS: tx_nextstate = tx_statecounter == fcs_cycles - 1 ? TX_WAIT : TX_FCS;
-    TX_WAIT: tx_nextstate = tx_statecounter == wait_cycles - 1 ? TX_INIT : TX_WAIT;
-    default: tx_nextstate = TX_INIT;
-endcase
-
-
-logic[3:0] tx_outdata;
-logic tx_valid = (tx_state != TX_INIT) & (tx_state != TX_WAIT);
-logic[31:0] fcs_out;
-
-crc32 crc(
-    .data(tx_outdata),
-    .fcsOut(fcs_out),
-    .crc_enable((tx_state == TX_HEADER) | (tx_state == TX_DATA)),
-    .clk(ETH_TX_CLK)
-);
-
-
-
-logic[31:0] fcs_buffer;
-assign tx_fifo_rden = tx_state == TX_DATA;
-
-
-always_ff @(posedge ETH_TX_CLK) begin
-
-    tx_statecounter <= tx_state == tx_nextstate ? tx_statecounter + 1 : 0;
-    tx_state <= tx_nextstate;
-    if (tx_state == TX_PREAMBLE) begin
-        preamble_buffer <= {preamble_buffer[3:0], preamble_buffer[63:4]};
+    
+    logic[15:0] tx_statecounter;
+    initial tx_statecounter = 0;
+    
+    typedef enum {
+        TX_INIT, TX_PREAMBLE, TX_HEADER,
+        TX_DATA,
+        TX_FCS, TX_WAIT
+    } TX_STATE;
+    
+    TX_STATE tx_state;
+    initial tx_state = TX_INIT;
+    TX_STATE tx_nextstate;
+    always_comb 
+    case (tx_state)
+        TX_INIT: tx_nextstate = tx_fifo_notenoughdata ? TX_INIT : TX_PREAMBLE;
+        TX_PREAMBLE: tx_nextstate = tx_statecounter == preamble_cycles - 1 ? TX_HEADER : TX_PREAMBLE;
+        TX_HEADER: tx_nextstate = tx_statecounter == header_cycles - 1 ? TX_DATA : TX_HEADER;
+        TX_DATA: tx_nextstate = tx_statecounter == frame_cycles - 1 ? TX_FCS : TX_DATA;
+        TX_FCS: tx_nextstate = tx_statecounter == fcs_cycles - 1 ? TX_WAIT : TX_FCS;
+        TX_WAIT: tx_nextstate = tx_statecounter == wait_cycles - 1 ? TX_INIT : TX_WAIT;
+        default: tx_nextstate = TX_INIT;
+    endcase
+    
+    
+    logic[3:0] tx_outdata;
+    logic tx_valid = (tx_state != TX_INIT) & (tx_state != TX_WAIT);
+    logic[31:0] fcs_out;
+    
+    crc32 crc(
+        .data(tx_outdata),
+        .fcsOut(fcs_out),
+        .crc_enable((tx_state == TX_HEADER) | (tx_state == TX_DATA)),
+        .clk(ETH_TX_CLK)
+    );
+    
+    
+    
+    logic[31:0] fcs_buffer;
+    assign tx_fifo_rden = tx_state == TX_DATA;
+    
+    
+    always_ff @(posedge ETH_TX_CLK) begin
+    
+        tx_statecounter <= tx_state == tx_nextstate ? tx_statecounter + 1 : 0;
+        tx_state <= tx_nextstate;
+        if (tx_state == TX_PREAMBLE) begin
+            preamble_buffer <= {preamble_buffer[3:0], preamble_buffer[63:4]};
+        end
+        if (tx_state == TX_HEADER) begin
+            frame_header <= {frame_header[3:0], frame_header[335:4]};
+        end
+        if (tx_nextstate == TX_FCS) begin
+            fcs_buffer <= tx_state == TX_DATA ? fcs_out : {4'bXXXX, fcs_buffer[31:4]};
+        end
     end
-    if (tx_state == TX_HEADER) begin
-        frame_header <= {frame_header[3:0], frame_header[335:4]};
-    end
-    if (tx_nextstate == TX_FCS) begin
-        fcs_buffer <= tx_state == TX_DATA ? fcs_out : {4'bXXXX, fcs_buffer[31:4]};
-    end
-end
-
-always_comb
-case (tx_state) 
-    TX_PREAMBLE: tx_outdata = preamble_buffer[3:0];
-    TX_HEADER: tx_outdata = frame_header[3:0];
-    TX_DATA: tx_outdata = tx_fifo_output;
-    TX_FCS: tx_outdata = fcs_buffer[3:0];
-    default: tx_outdata = 4'bXXXX;
-endcase
-assign ETH_TXD = {tx_valid, tx_outdata};
+    
+    always_comb
+    case (tx_state) 
+        TX_PREAMBLE: tx_outdata = preamble_buffer[3:0];
+        TX_HEADER: tx_outdata = frame_header[3:0];
+        TX_DATA: tx_outdata = tx_fifo_output;
+        TX_FCS: tx_outdata = fcs_buffer[3:0];
+        default: tx_outdata = 4'bXXXX;
+    endcase
+    assign ETH_TXD = {tx_valid, tx_outdata};
 endmodule

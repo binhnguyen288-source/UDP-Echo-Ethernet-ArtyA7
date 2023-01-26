@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date             : Mon Jan  9 13:18:43 2023
-| Host             : DESKTOP-52T4KVE running 64-bit major release  (build 9200)
+| Date             : Thu Jan 26 07:09:06 2023
+| Host             : DESKTOP-D6FVSP1 running 64-bit major release  (build 9200)
 | Command          : report_power -file top_power_routed.rpt -pb top_power_summary_routed.pb -rpx top_power_routed.rpx
 | Design           : top
 | Device           : xc7a35ticsg324-1L
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.166        |
+| Total On-Chip Power (W)  | 0.165        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.104        |
+| Dynamic (W)              | 0.103        |
 | Device Static (W)        | 0.062        |
 | Effective TJA (C/W)      | 4.8          |
 | Max Ambient (C)          | 99.2         |
@@ -53,18 +53,18 @@ Table of Contents
 | On-Chip                 | Power (W) | Used     | Available | Utilization (%) |
 +-------------------------+-----------+----------+-----------+-----------------+
 | Clocks                  |     0.002 |        7 |       --- |             --- |
-| Slice Logic             |    <0.001 |     5814 |       --- |             --- |
-|   LUT as Logic          |    <0.001 |     2461 |     20800 |           11.83 |
-|   Register              |    <0.001 |     3229 |     41600 |            7.76 |
+| Slice Logic             |    <0.001 |     3724 |       --- |             --- |
+|   LUT as Logic          |    <0.001 |     1412 |     20800 |            6.79 |
+|   Register              |    <0.001 |     2186 |     41600 |            5.25 |
 |   CARRY4                |    <0.001 |       14 |      8150 |            0.17 |
 |   LUT as Shift Register |    <0.001 |       13 |      9600 |            0.14 |
 |   Others                |     0.000 |       17 |       --- |             --- |
-| Signals                 |    <0.001 |     3698 |       --- |             --- |
-| Block RAM               |    <0.001 |        2 |        50 |            4.00 |
+| Signals                 |    <0.001 |     2648 |       --- |             --- |
+| Block RAM               |     0.001 |        2 |        50 |            4.00 |
 | PLL                     |     0.096 |        1 |         5 |           20.00 |
 | I/O                     |     0.003 |       17 |       210 |            8.10 |
 | Static Power            |     0.062 |          |           |                 |
-| Total                   |     0.166 |          |           |                 |
+| Total                   |     0.165 |          |           |                 |
 +-------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -144,10 +144,11 @@ Table of Contents
 3.1 By Hierarchy
 ----------------
 
-+------+-----------+
-| Name | Power (W) |
-+------+-----------+
-| top  |     0.104 |
-+------+-----------+
++------------+-----------+
+| Name       | Power (W) |
++------------+-----------+
+| top        |     0.103 |
+|   ether_tx |     0.001 |
++------------+-----------+
 
 

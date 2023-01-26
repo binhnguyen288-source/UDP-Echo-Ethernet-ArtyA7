@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='C:/Users/nguye/Documents/ethernet/ethernet.runs/impl_1'
+HD_PWD='C:/Users/nguye/Documents/GitHub/UDP-Echo-Ethernet-ArtyA7/ethernet.runs/impl_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

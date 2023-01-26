@@ -29,7 +29,9 @@ module top(
     inout ETH_MDIO,
     input ETH_TX_CLK,
     input ETH_RX_CLK,
-    input[5:0] ETH_RXD
+    input[5:0] ETH_RXD,
+    input ps2_clk,
+    input ps2_data
 );
 
     logic fb_clk, pll_locked;
@@ -74,7 +76,7 @@ module top(
     logic[3:0] ether_rx_data;
 
     localparam[12:0] rx_payload_size = 13'h80;
-    localparam[12:0] tx_payload_size = 13'h100;
+    localparam[12:0] tx_payload_size = 13'h80;
 
     localparam rx_bits = rx_payload_size * 8;
     localparam tx_bits = tx_payload_size * 8;
@@ -121,7 +123,7 @@ module top(
     logic[tx_bits-1:0] send_buffer;
 
 
-    logic calc_done;
+    logic calc_done = 1'b1;
 
     PROCESS_STATE proc_nextstate;
     always_comb
@@ -138,14 +140,6 @@ module top(
     assign ether_tx_wren = proc_state == PROCESS_TRANSFER;
     assign ether_tx_data = send_buffer[3:0];
 
-    logic[2047:0] calc_result;
-    do_calc calc(
-        .rst(proc_state == PROCESS_INIT),
-        .clk(process_clk),
-        .value(message),
-        .result(calc_result),
-        .done(calc_done)
-    );
 
     always_ff @(posedge process_clk) begin
         proc_state <= proc_nextstate;
@@ -153,7 +147,7 @@ module top(
 
         case (proc_state)
             PROCESS_LOADDATA: message[{proc_statecounter, 2'b00}+:4] <= ether_rx_data;
-            PROCESS_CALC: if (calc_done) send_buffer <= calc_result;
+            PROCESS_CALC: send_buffer <= message;
             PROCESS_TRANSFER: send_buffer <= {4'bXXXX, send_buffer[tx_bits-1:4]};
             default: ;
         endcase
